@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MZV3 — Serviced Flat, Sluseholmen, Copenhagen</title>
+  <meta name="description" content="60m² one-bedroom serviced flat in Sluseholmen's canal district. Professional leases of 3–9 months. Available from summer 2025.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ─── Reset & base ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage:       #8a9e8c;
+      --sage-light: #c2cec3;
+      --sage-pale:  #edf0ed;
+      --off-white:  #f6f4f0;
+      --warm-grey:  #d4cfc8;
+      --mid:        #8c8880;
+      --dark:       #2a2925;
+      --ink:        #1c1b18;
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+
+      --max: 1180px;
+      --gap: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--off-white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ─── Utility ───────────────────────────────────────── */
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 5vw, 4rem);
+    }
+
+    .label {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    /* ─── Nav ───────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.4rem clamp(1.25rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(246,244,240,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--warm-grey);
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 24px rgba(42,41,37,.06); }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 400;
+      letter-spacing: .04em;
+      color: var(--ink);
+    }
+    .nav-logo span {
+      color: var(--sage);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ─── Hero ──────────────────────────────────────────── */
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 4.5rem;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(3rem, 8vw, 7rem) clamp(1.25rem, 5vw, 4rem) clamp(3rem, 8vw, 7rem) clamp(1.25rem, 5vw, 4rem);
+      max-width: 600px;
+    }
+
+    .hero-eyebrow {
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2.5rem;
+      height: 1px;
+      background: var(--sage);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 300;
+      line-height: 1.12;
+      letter-spacing: -.01em;
+      color: var(--ink);
+      margin-bottom: 1.6rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--sage);
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.75;
+      max-width: 420px;
+      margin-bottom: 2.8rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: .85rem 2rem;
+      background: var(--ink);
+      color: var(--off-white);
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: background .2s, transform .15s;
+    }
+    .btn-primary:hover {
+      background: var(--sage);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      padding: .85rem 2rem;
+      border: 1px solid var(--warm-grey);
+      color: var(--mid);
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--sage);
+      color: var(--sage);
+    }
+
+    .hero-availability {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--warm-grey);
+      display: flex;
+      gap: 2.5rem;
+    }
+    .avail-item {}
+    .avail-label { margin-bottom: .25rem; }
+    .avail-value {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    /* Hero image panel */
+    .hero-visual {
+      position: relative;
+      background: var(--sage-pale);
+      overflow: hidden;
+    }
+
+    .hero-photo-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #dce4dc 0%, #c8d4c9 50%, #b8c9ba 100%);
+    }
+
+    .photo-coming-soon {
+      text-align: center;
+      padding: 2rem;
+    }
+    .photo-coming-soon .camera-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 1.5rem;
+      opacity: .4;
+    }
+    .photo-coming-soon p {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(42,41,37,.45);
+      line-height: 1.4;
+    }
+    .photo-coming-soon small {
+      display: block;
+      margin-top: .6rem;
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(42,41,37,.3);
+    }
+
+    /* Floating property tag */
+    .hero-tag {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 2rem;
+      background: rgba(246,244,240,.95);
+      backdrop-filter: blur(8px);
+      padding: 1.2rem 1.6rem;
+      border-left: 3px solid var(--sage);
+    }
+    .hero-tag .tag-address {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: .2rem;
+    }
+    .hero-tag .tag-sub {
+      font-size: 11px;
+      color: var(--mid);
+      letter-spacing: .05em;
+    }
+
+    /* ─── Stats strip ───────────────────────────────────── */
+    .stats {
+      background: var(--ink);
+      padding: 2.5rem 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .stat {
+      padding: 0 2rem;
+      border-right: 1px solid rgba(255,255,255,.1);
+      text-align: center;
+    }
+    .stat:last-child { border-right: none; }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 300;
+      color: var(--off-white);
+      line-height: 1;
+      margin-bottom: .4rem;
+    }
+    .stat-number span {
+      color: var(--sage-light);
+    }
+    .stat-label {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+    }
+
+    /* ─── Section shell ─────────────────────────────────── */
+    .section {
+      padding: clamp(4rem, 8vw, 7rem) 0;
+    }
+    .section-header {
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-top: .8rem;
+    }
+    .section-title em { font-style: italic; color: var(--sage); }
+
+    /* ─── About / The Flat ──────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap) clamp(3rem, 6vw, 6rem);
+      align-items: start;
+    }
+    .about-body p {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+    }
+    .about-body p:last-child { margin-bottom: 0; }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--warm-grey);
+    }
+    .spec-item {
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--warm-grey);
+    }
+    .spec-item:nth-child(odd) { padding-right: 1.5rem; }
+    .spec-item:nth-child(even) { padding-left: 1.5rem; border-left: 1px solid var(--warm-grey); }
+    .spec-key { margin-bottom: .2rem; }
+    .spec-val {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    /* ─── Photo gallery placeholder ─────────────────────── */
+    .gallery {
+      background: var(--sage-pale);
+      padding: clamp(3rem, 6vw, 5rem) 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 260px 200px;
+      gap: 3px;
+    }
+
+    .gallery-cell {
+      background: linear-gradient(135deg, #ccd8cd 0%, #b8c9ba 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .gallery-cell.large { grid-row: 1 / 3; }
+
+    .gallery-cell::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.12) 0%, transparent 60%);
+    }
+
+    .gallery-cell-label {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-style: italic;
+      color: rgba(42,41,37,.35);
+      text-align: center;
+      z-index: 1;
+    }
+
+    .gallery-note {
+      text-align: center;
+      margin-top: 1.8rem;
+      font-size: 12px;
+      color: var(--mid);
+      letter-spacing: .05em;
+    }
+    .gallery-note strong {
+      color: var(--sage);
+      font-weight: 500;
+    }
+
+    /* ─── Features ──────────────────────────────────────── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .feature-card {
+      padding: 2rem 2rem 2.2rem;
+      background: white;
+      border-top: 3px solid var(--sage);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .feature-card:hover {
+      box-shadow: 0 8px 32px rgba(42,41,37,.07);
+      transform: translateY(-2px);
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 1.2rem;
+      color: var(--sage);
+    }
+
+    .feature-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: .6rem;
+    }
+
+    .feature-body {
+      font-size: 13.5px;
+      color: var(--mid);
+      line-height: 1.75;
+    }
+
+    /* ─── Location ──────────────────────────────────────── */
+    .location-section {
+      background: var(--ink);
+      color: var(--off-white);
+      padding: clamp(4rem, 8vw, 7rem) 0;
+    }
+    .location-section .section-title { color: var(--off-white); }
+    .location-section .label { color: rgba(255,255,255,.35); }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: start;
+      margin-top: clamp(2.5rem, 5vw, 4rem);
+    }
+
+    .location-body p {
+      color: rgba(255,255,255,.6);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+    }
+
+    .proximity-list {
+      list-style: none;
+      margin-top: 1.8rem;
+    }
+    .proximity-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: .7rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      font-size: 13.5px;
+    }
+    .proximity-list li:first-child { border-top: 1px solid rgba(255,255,255,.08); }
+    .proximity-name { color: rgba(255,255,255,.75); }
+    .proximity-time {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--sage-light);
+    }
+
+    .map-placeholder {
+      height: 340px;
+      background: #3a3d35;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .map-placeholder svg { opacity: .3; color: var(--sage-light); }
+    .map-placeholder p {
+      font-size: 12px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.25);
+    }
+    .map-placeholder a {
+      font-size: 12px;
+      color: var(--sage-light);
+      letter-spacing: .05em;
+      border-bottom: 1px solid rgba(194,206,195,.3);
+      padding-bottom: 2px;
+      transition: border-color .2s;
+    }
+    .map-placeholder a:hover { border-color: var(--sage-light); }
+
+    /* ─── Rates ─────────────────────────────────────────── */
+    .rates-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1rem, 2vw, 1.5rem);
+      margin-bottom: 2rem;
+    }
+
+    .rate-card {
+      border: 1px solid var(--warm-grey);
+      padding: 2rem 1.8rem 2.2rem;
+      position: relative;
+    }
+    .rate-card.featured {
+      border-color: var(--sage);
+      background: white;
+    }
+    .rate-card.featured::before {
+      content: 'Most popular';
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--sage);
+      color: white;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .3rem .9rem;
+      white-space: nowrap;
+    }
+
+    .rate-term {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: .2rem;
+    }
+    .rate-price {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1;
+      margin: .8rem 0;
+    }
+    .rate-price small {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--mid);
+    }
+    .rate-note {
+      font-size: 12px;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    .rates-footnote {
+      font-size: 12px;
+      color: var(--mid);
+      border-top: 1px solid var(--warm-grey);
+      padding-top: 1.2rem;
+    }
+
+    /* ─── Enquiry CTA ───────────────────────────────────── */
+    .cta-section {
+      background: var(--sage-pale);
+      padding: clamp(4rem, 8vw, 7rem) 0;
+    }
+
+    .cta-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .cta-inner .section-title {
+      margin-bottom: 1.2rem;
+    }
+    .cta-inner p {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-email-block {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: white;
+      border: 1px solid var(--warm-grey);
+      padding: .9rem 1.4rem .9rem 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+    .cta-email-block span {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--ink);
+    }
+
+    .cta-note {
+      font-size: 12px;
+      color: var(--mid);
+      letter-spacing: .03em;
+    }
+
+    /* ─── Footer ─────────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,.4);
+      padding: 3rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.75);
+    }
+    .footer-logo span { color: var(--sage-light); }
+    .footer-meta {
+      font-size: 11.5px;
+      line-height: 1.8;
+      text-align: right;
+    }
+    .footer-meta a {
+      color: var(--sage-light);
+      border-bottom: 1px solid rgba(194,206,195,.3);
+    }
+
+    /* ─── Animations ─────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-content > * {
+      opacity: 0;
+      animation: fadeUp .8s ease forwards;
+    }
+    .hero-content > *:nth-child(1) { animation-delay: .1s; }
+    .hero-content > *:nth-child(2) { animation-delay: .22s; }
+    .hero-content > *:nth-child(3) { animation-delay: .34s; }
+    .hero-content > *:nth-child(4) { animation-delay: .46s; }
+    .hero-content > *:nth-child(5) { animation-delay: .58s; }
+
+    /* ─── Responsive ─────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .hero-visual {
+        height: 55vw;
+        min-height: 280px;
+      }
+      .hero-tag { display: none; }
+
+      .about-grid,
+      .location-grid { grid-template-columns: 1fr; }
+
+      .features-grid { grid-template-columns: 1fr 1fr; }
+
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 2rem 0; }
+      .stat { border-right: none; }
+      .stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.1); }
+
+      .rates-grid { grid-template-columns: 1fr; }
+      .rate-card.featured::before { left: 1.8rem; transform: none; }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 200px 160px 160px;
+      }
+      .gallery-cell.large { grid-row: auto; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .features-grid { grid-template-columns: 1fr; }
+      .hero-availability { flex-direction: column; gap: 1.2rem; }
+      .footer-meta { text-align: left; }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 180px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── Nav ─────────────────────────────────────────── -->
+<nav id="nav">
+  <a href="#" class="nav-logo">MZV<span>3</span></a>
+  <ul class="nav-links">
+    <li><a href="#flat">The Flat</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#rates">Rates</a></li>
+    <li><a href="#enquire">Enquire</a></li>
+  </ul>
+</nav>
+
+<!-- ─── Hero ─────────────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="hero-content container" style="padding-right: 0; max-width: none;">
+    <div class="hero-eyebrow">
+      <span class="label">Sluseholmen, Copenhagen</span>
+    </div>
+
+    <h1 class="hero-title">
+      A considered<br>flat for<br><em>the long stay</em>
+    </h1>
+
+    <p class="hero-sub">
+      60m² one-bedroom in Sluseholmen's canal district. Fully furnished to a professional standard. Available for 3, 6, or 9-month leases.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="mailto:admin@mzv3.dk?subject=Lease%20Enquiry%20%E2%80%94%20MZV3" class="btn-primary">Enquire about a lease</a>
+      <a href="https://www.airbnb.com" target="_blank" rel="noopener" class="btn-secondary">Short stays via Airbnb</a>
+    </div>
+
+    <div class="hero-availability">
+      <div class="avail-item">
+        <div class="label avail-label">Next available</div>
+        <div class="avail-value">Summer 2026</div>
+      </div>
+      <div class="avail-item">
+        <div class="label avail-label">Minimum stay</div>
+        <div class="avail-value">30 nights</div>
+      </div>
+      <div class="avail-item">
+        <div class="label avail-label">Energy rating</div>
+        <div class="avail-value">A2015</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-photo-placeholder">
+      <div class="photo-coming-soon">
+        <svg class="camera-icon" viewBox="0 0 48 48" fill="none" stroke="rgba(42,41,37,.5)" stroke-width="1.5">
+          <path d="M6 16h4l4-6h20l4 6h4a2 2 0 0 1 2 2v20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V18a2 2 0 0 1 2-2z"/>
+          <circle cx="24" cy="28" r="7"/>
+        </svg>
+        <p>Photography in progress</p>
+        <small>Images coming soon</small>
+      </div>
+    </div>
+
+    <div class="hero-tag">
+      <div class="tag-address">Monica Zetterlunds Vej 3, 3–2</div>
+      <div class="tag-sub">Magnolieholm · 2450 København SV</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Stats ─────────────────────────────────────────── -->
+<div class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-number">60<span>m²</span></div>
+        <div class="stat-label">One-bedroom</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">2019</div>
+        <div class="stat-label">New-build</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">1<span>min</span></div>
+        <div class="stat-label">To metro</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">A<span>2015</span></div>
+        <div class="stat-label">Energy class</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── The Flat ──────────────────────────────────────── -->
+<section class="section" id="flat">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">The apartment</span>
+      <h2 class="section-title">Built to live in.<br><em>Fitted to work from.</em></h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-body">
+        <p>MZV3 is a 60m² one-bedroom apartment on the third floor of Magnolieholm — a 2019 new-build facing Sluseholmen's canal network. The building is quiet, well-run, and two minutes from the waterfront.</p>
+        <p>The flat has been furnished from scratch for professionals arriving with a suitcase. The bedroom doubles as a proper workspace: a 131cm desk with drawers, an ergonomic chair, and a 32" Samsung monitor on an articulating arm that swings between desk and bed-viewing position. One USB-C cable connects your laptop to screen, power, and audio.</p>
+        <p>A 50" smart TV is wall-mounted in the living room. Both screens stream natively — no separate stick needed. The kitchen is fully equipped. The building has fibre.</p>
+        <p>Sage-painted walls, oak floors, VELFAC triple-glazed windows. Quiet enough to focus. Connected enough to arrive on day one and get to work.</p>
+      </div>
+
+      <div>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <div class="label spec-key">Size</div>
+            <div class="spec-val">60 m² + 3 m² balcony</div>
+          </div>
+          <div class="spec-item">
+            <div class="label spec-key">Layout</div>
+            <div class="spec-val">1 bedroom + living/kitchen</div>
+          </div>
+          <div class="spec-item">
+            <div class="label spec-key">Floor</div>
+            <div class="spec-val">3rd floor</div>
+          </div>
+          <div class="spec-item">
+            <div class="label spec-key">Built</div>
+            <div class="spec-val">2019</div>
+          </div>
+          <div class="spec-item">
+            <div class="label spec-key">Heating</div>
+            <div class="spec-val">Fjernvarme (HOFOR)</div>
+          </div>
+          <div class="spec-item">
+            <div class="label spec-key">Windows</div>
+            <div class="spec-val">VELFAC triple glazed</div>
+          </div>
+          <div class="spec-item">
+            <div class="label spec-key">Appliances</div>
+            <div class="spec-val">Fridge, DW, washer/dryer, oven</div>
+          </div>
+          <div class="spec-item">
+            <div class="label spec-key">Internet</div>
+            <div class="spec-val">5G broadband (3.dk)</div>
+          </div>
+          <div class="spec-item">
+            <div class="label spec-key">Workspace</div>
+            <div class="spec-val">Dedicated desk + 32" monitor</div>
+          </div>
+          <div class="spec-item">
+            <div class="label spec-key">Storage</div>
+            <div class="spec-val">Basement storage room</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Gallery placeholder ───────────────────────────── -->
+<div class="gallery">
+  <div class="container">
+    <div class="gallery-grid">
+      <div class="gallery-cell large">
+        <span class="gallery-cell-label">Living room</span>
+      </div>
+      <div class="gallery-cell">
+        <span class="gallery-cell-label">Kitchen</span>
+      </div>
+      <div class="gallery-cell">
+        <span class="gallery-cell-label">Bedroom / workspace</span>
+      </div>
+      <div class="gallery-cell">
+        <span class="gallery-cell-label">Bathroom</span>
+      </div>
+      <div class="gallery-cell">
+        <span class="gallery-cell-label">Balcony</span>
+      </div>
+    </div>
+    <p class="gallery-note">Professional photography scheduled. <strong>Photos available shortly.</strong></p>
+  </div>
+</div>
+
+<!-- ─── Features ─────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">What's included</span>
+      <h2 class="section-title">Move-in ready.<br><em>Day one.</em></h2>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <svg class="feature-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="4" y="12" width="32" height="20" rx="1"/>
+          <path d="M12 12V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/>
+          <path d="M4 24h32"/>
+        </svg>
+        <h3 class="feature-title">Full workspace</h3>
+        <p class="feature-body">131cm desk, ergonomic chair, 32" Samsung monitor on articulating VESA arm. USB-C hub docking. Desk lamp, compact speakers. Works equally as a TV from bed.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="feature-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M8 30V16l12-8 12 8v14"/>
+          <rect x="15" y="22" width="10" height="8"/>
+        </svg>
+        <h3 class="feature-title">Fully furnished</h3>
+        <p class="feature-body">IKEA mid-range backbone with considered design pieces. Bed with quality mattress, sofa, dining table, storage. Everything you need, nothing you don't.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="feature-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
+          <circle cx="20" cy="20" r="14"/>
+          <path d="M20 10v10l6 4"/>
+        </svg>
+        <h3 class="feature-title">3–9 month leases</h3>
+        <p class="feature-body">Standard lease lengths of 3, 6, or 9 months. Shorter stays of 30+ nights available via Airbnb during gaps. Corporate invoicing available on request.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="feature-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M20 4C12 4 6 10 6 18c0 10 14 22 14 22s14-12 14-22c0-8-6-14-14-14z"/>
+          <circle cx="20" cy="18" r="4"/>
+        </svg>
+        <h3 class="feature-title">Canal district</h3>
+        <p class="feature-body">Sluseholmen is a quiet, design-conscious neighbourhood. Waterfront walks, independent restaurants, and the metro — all within minutes of the front door.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="feature-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="6" y="8" width="28" height="20" rx="2"/>
+          <path d="M6 28l6-6 6 4 8-8 8 10"/>
+          <path d="M14 32h12"/>
+        </svg>
+        <h3 class="feature-title">Two screens</h3>
+        <p class="feature-body">32" monitor in the bedroom for work and streaming. 50" smart TV wall-mounted in the living room. Both handle Netflix, Prime, and Disney+ natively.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="feature-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M8 20a12 12 0 0 1 24 0"/>
+          <path d="M12 26a9 9 0 0 1 16 0"/>
+          <path d="M16 32a5 5 0 0 1 8 0"/>
+          <circle cx="20" cy="35" r="1.5" fill="currentColor"/>
+        </svg>
+        <h3 class="feature-title">Fast internet</h3>
+        <p class="feature-body">5G home broadband via 3.dk — typically faster and more reliable than fixed-line alternatives in this area. Router included. Speeds will be confirmed and listed once on-site.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Location ──────────────────────────────────────── -->
+<section class="location-section" id="location">
+  <div class="container">
+    <span class="label">Location</span>
+    <div class="location-grid">
+      <div class="location-body">
+        <h2 class="section-title">Sluseholmen —<br><em>the city's quiet canal island</em></h2>
+        <p>Magnolieholm sits at the northern edge of Sluseholmen, the canal district that became Copenhagen's most architecturally considered neighbourhood of the 2010s. Brick facades, waterways, and a human scale that the rest of the city doesn't quite manage.</p>
+        <p>The metro runs you to central Copenhagen in under 20 minutes. Fisketorvet shopping and the harbour bath are a short cycle away. The neighbourhood has what you need without being in the middle of everything.</p>
+
+        <ul class="proximity-list">
+          <li>
+            <span class="proximity-name">Sluseholmen Metro (M4)</span>
+            <span class="proximity-time">1 min walk</span>
+          </li>
+          <li>
+            <span class="proximity-name">Copenhagen Central Station</span>
+            <span class="proximity-time">12 min by metro</span>
+          </li>
+          <li>
+            <span class="proximity-name">Copenhagen Airport</span>
+            <span class="proximity-time">25 min by metro</span>
+          </li>
+          <li>
+            <span class="proximity-name">Fisketorvet (shopping)</span>
+            <span class="proximity-time">5 min metro / 8 min cycle</span>
+          </li>
+          <li>
+            <span class="proximity-name">Vesterbro / city centre</span>
+            <span class="proximity-time">15 min cycle</span>
+          </li>
+          <li>
+            <span class="proximity-name">Supermarkets (365discount, Netto, Spar)</span>
+            <span class="proximity-time">1–3 min walk</span>
+          </li>
+          <li>
+            <span class="proximity-name">Restaurants & cafés</span>
+            <span class="proximity-time">from 1 min walk</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="map-placeholder">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M20 4C13 4 8 9 8 16c0 9 12 20 12 20s12-11 12-20c0-7-5-12-12-12z"/>
+            <circle cx="20" cy="16" r="4"/>
+          </svg>
+          <p>Map coming soon</p>
+          <a href="https://maps.google.com/?q=Monica+Zetterlunds+Vej+3,+Copenhagen" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Rates ──────────────────────────────────────────── -->
+<section class="section" id="rates">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Pricing</span>
+      <h2 class="section-title">Transparent rates.<br><em>All-inclusive.</em></h2>
+    </div>
+
+    <div class="rates-grid">
+      <div class="rate-card">
+        <div class="rate-term">3-month lease</div>
+        <div class="rate-price">POA <small>/ month</small></div>
+        <div class="rate-note">Short professional assignment or trial period. Includes all furnishings, utilities discussion welcome.</div>
+      </div>
+      <div class="rate-card featured">
+        <div class="rate-term">6-month lease</div>
+        <div class="rate-price">POA <small>/ month</small></div>
+        <div class="rate-note">The standard corporate relocation length. Best value for extended assignments. Enquire for current pricing.</div>
+      </div>
+      <div class="rate-card">
+        <div class="rate-term">9-month lease</div>
+        <div class="rate-price">POA <small>/ month</small></div>
+        <div class="rate-note">Ideal for longer projects or academic year placements. Long-term rate available on application.</div>
+      </div>
+    </div>
+
+    <p class="rates-footnote">
+      Pricing is provided on enquiry. Rates vary by term length and availability. Short stays of 30+ nights available via Airbnb during lease gaps. Corporate invoicing and direct billing available for qualifying bookings.
+    </p>
+  </div>
+</section>
+
+<!-- ─── CTA / Enquiry ─────────────────────────────────── -->
+<section class="cta-section" id="enquire">
+  <div class="container">
+    <div class="cta-inner">
+      <span class="label">Get in touch</span>
+      <h2 class="section-title">Ready to book,<br><em>or just looking?</em></h2>
+      <p>Send us an email with your dates, preferred term, and anything specific you need — we'll reply within one business day.</p>
+
+      <div>
+        <a href="mailto:admin@mzv3.dk?subject=Lease%20Enquiry%20%E2%80%94%20MZV3" class="cta-email-block">
+          <span>admin@mzv3.dk</span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 4h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
+            <polyline points="2,6 10,11 18,6"/>
+          </svg>
+        </a>
+      </div>
+
+      <p class="cta-note">Or write directly: <a href="mailto:admin@mzv3.dk" style="color: var(--sage);">admin@mzv3.dk</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">MZV<span>3</span></div>
+      <div class="footer-meta">
+        Monica Zetterlunds Vej 3, 3. Dør/lejl. 2<br>
+        Magnolieholm · 2450 København SV · Denmark<br>
+        <a href="mailto:admin@mzv3.dk">admin@mzv3.dk</a> · <a href="https://mzv3.dk">mzv3.dk</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll shadow
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+</script>
+</body>
+</html>
